@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: ScrollAbleScreen(),
     );
   }
@@ -115,25 +115,110 @@ class ScrollAbleScreen extends StatelessWidget {
               ],
             ),
           ),
-          Container(margin: EdgeInsets.only(top: 25),),
+          Container(
+            margin: const EdgeInsets.only(top: 25),
+          ),
           CarouselSlider(
-            
             options: CarouselOptions(height: 100.0),
             items: [1, 2, 3, 4, 5].map((i) {
               return Builder(
                 builder: (BuildContext context) {
                   return Container(
-                      width: MediaQuery.of(context).size.width,
-                      margin: EdgeInsets.symmetric(horizontal: 5.0),
-                      decoration: BoxDecoration(color: Colors.amber, borderRadius: BorderRadius.circular(10)),
-                      );
+                    width: MediaQuery.of(context).size.width,
+                    margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                    decoration: BoxDecoration(
+                        color: Colors.amber,
+                        borderRadius: BorderRadius.circular(10)),
+                  );
                 },
               );
             }).toList(),
           ),
-          Container(margin: EdgeInsets.only(top: 10,left: 5),child: Text("Belanja berdasarkan kategori", style: TextStyle(fontSize: 20),),),
-
-          
+          Container(
+            margin: const EdgeInsets.only(top: 10, left: 5, bottom: 0),
+            child: const Text(
+              "Belanja berdasarkan kategori",
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+          ),
+          Positioned(
+              top: 0.0,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Image.network(
+                    'https://i0.wp.com/blog.sribu.com/wp-content/uploads/2023/05/contoh-desain-produk-makanan.webp?fit=1000%2C667&ssl=1',
+                    width: 100,
+                    height: 120,
+                  ),
+                  Image.network(
+                    'https://i0.wp.com/blog.sribu.com/wp-content/uploads/2023/05/contoh-desain-produk-makanan.webp?fit=1000%2C667&ssl=1',
+                    width: 100,
+                    height: 120,
+                  ),
+                  Image.network(
+                    'https://i0.wp.com/blog.sribu.com/wp-content/uploads/2023/05/contoh-desain-produk-makanan.webp?fit=1000%2C667&ssl=1',
+                    width: 100,
+                    height: 120,
+                  ),
+                  Image.network(
+                    'https://i0.wp.com/blog.sribu.com/wp-content/uploads/2023/05/contoh-desain-produk-makanan.webp?fit=1000%2C667&ssl=1',
+                    width: 100,
+                    height: 100,
+                  ),
+                ],
+              )),
+          Container(
+            margin: const EdgeInsets.only(top: 0, left: 5, bottom: 0),
+            child: const Text(
+              "Semua produk",
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Container(
+                height: 50,
+                width: 120,
+                decoration:
+                    BoxDecoration(border: Border.all(color: Colors.grey)),
+                child: TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    "Promosi",
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ),
+              ),
+              Container(
+                height: 50,
+                width: 120,
+                decoration:
+                    BoxDecoration(border: Border.all(color: Colors.grey)),
+                child: TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    "Nama Produk",
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ),
+              ),
+              Container(
+                height: 50,
+                width: 120,
+                decoration:
+                    BoxDecoration(border: Border.all(color: Colors.blue)),
+                child: TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    "Terlaris",
+                    style: TextStyle(color: Colors.blue),
+                  ),
+                ),
+              )
+            ],
+          )
         ],
       ),
     );
